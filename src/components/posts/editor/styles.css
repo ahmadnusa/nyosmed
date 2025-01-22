@@ -1,0 +1,25 @@
+.tiptap p.is-editor-empty:first-child::before {
+  color: theme("colors.muted.foreground");
+  content: attr(data-placeholder);
+  float: left;
+  height: 0;
+  pointer-events: none;
+}
+
+.tiptap.ProseMirror {
+  outline: none;
+}
+
+#editor::-webkit-scrollbar {
+  width: 20px;
+}
+
+#editor::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+#editor::-webkit-scrollbar-thumb {
+  @apply rounded-sm bg-card/60 hover:bg-card;
+  border: 6px solid transparent;
+  background-clip: content-box;
+}
