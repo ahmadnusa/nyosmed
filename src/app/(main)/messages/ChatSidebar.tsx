@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button"
 import { useQueryClient } from "@tanstack/react-query"
-import { FileX, MailPlus, X } from "lucide-react"
+import { MailPlus, X } from "lucide-react"
 import { useCallback, useEffect, useState } from "react"
 import {
   ChannelList,
@@ -19,7 +19,9 @@ interface ChatSidebarProps {
 
 export default function ChatSidebar({ open, onClose }: ChatSidebarProps) {
   const { user } = useSession()
+
   const queryClient = useQueryClient()
+
   const { channel } = useChatContext()
 
   useEffect(() => {
@@ -82,7 +84,7 @@ function MenuHeader({ onClose }: MenuHeaderProps) {
     <>
       <div className='flex items-center gap-3 p-2'>
         <div className='h-full md:hidden'>
-          <Button size={"icon"} variant='ghost' onClick={onClose}>
+          <Button size='icon' variant='ghost' onClick={onClose}>
             <X className='size-5' />
           </Button>
         </div>

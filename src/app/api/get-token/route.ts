@@ -11,7 +11,7 @@ export async function GET() {
       return Response.json({ error: "Unauthorized" }, { status: 401 })
     }
 
-    const expirationTime = Math.floor(Date.now() / 1000) + 60 * 60 // 1 hour
+    const expirationTime = Math.floor(Date.now() / 1000) + 60 * 60
 
     const issuedAt = Math.floor(Date.now() / 1000) - 60
 
@@ -23,7 +23,7 @@ export async function GET() {
 
     return Response.json({ token })
   } catch (error) {
-    console.error("Failed to get token", error)
-    return Response.json({ error: "Internal Server Error" }, { status: 500 })
+    console.error(error)
+    return Response.json({ error: "Internal server error" }, { status: 500 })
   }
 }

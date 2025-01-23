@@ -15,13 +15,16 @@ interface ChatChannelProps {
   openSidebar: () => void
 }
 
-export default function ChatCannel({ open, openSidebar }: ChatChannelProps) {
+export default function ChatChannel({ open, openSidebar }: ChatChannelProps) {
   return (
     <div className={cn("w-full md:block", !open && "hidden")}>
       <Channel>
         <Window>
           <CustomChannelHeader openSidebar={openSidebar} />
-          <MessageList />
+          <MessageList
+            closeReactionSelectorOnClick
+            hideDeletedMessages={false}
+          />
           <MessageInput />
         </Window>
       </Channel>

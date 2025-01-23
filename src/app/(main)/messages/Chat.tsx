@@ -6,7 +6,7 @@ import { useState } from "react"
 import { Loader2 } from "lucide-react"
 import { Chat as StreamChat } from "stream-chat-react"
 import ChatSidebar from "./ChatSidebar"
-import ChatCannel from "./ChatChannel"
+import ChatChannel from "./ChatChannel"
 
 export default function Chat() {
   const chatClient = useInitializeChatClient()
@@ -34,7 +34,7 @@ export default function Chat() {
             open={sidebarOpen}
             onClose={() => setSidebarOpen(false)}
           />
-          <ChatCannel
+          <ChatChannel
             open={!sidebarOpen}
             openSidebar={() => setSidebarOpen(true)}
           />
