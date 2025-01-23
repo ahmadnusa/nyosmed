@@ -10,6 +10,7 @@ import { useMutation, useQuery } from "@tanstack/react-query"
 import {
   Dialog,
   DialogContent,
+  DialogDescription,
   DialogFooter,
   DialogHeader,
   DialogTitle,
@@ -54,7 +55,7 @@ export default function NewChatDialog({
               }
             : {}),
         },
-        { name: 1, username: 1 },
+        [{ name: 1 }, { username: 1 }], // Changed to an array of sort objects
         { limit: 15 },
       ),
   })
@@ -91,11 +92,13 @@ export default function NewChatDialog({
       <DialogContent className='bg-card p-0'>
         <DialogHeader className='px-6 pt-6'>
           <DialogTitle>New chat</DialogTitle>
+          <DialogDescription></DialogDescription>
         </DialogHeader>
         <div>
           <div className='group relative'>
             <SearchIcon className='absolute left-5 top-1/2 size-5 -translate-y-1/2 transform text-muted-foreground group-focus-within:text-primary' />
             <input
+              name='search'
               placeholder='Search users...'
               className='h-12 w-full pe-4 ps-14 focus:outline-none'
               value={searchInput}
