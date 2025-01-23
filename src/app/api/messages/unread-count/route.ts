@@ -7,7 +7,7 @@ export async function GET() {
     const { user } = await validateRequest()
 
     if (!user) {
-      return { status: 401, body: { error: "Unauthorized" } }
+      return Response.json({ error: "Unauthorized" }, { status: 401 })
     }
 
     const { total_unread_count } = await streamServerClient.getUnreadCount(
@@ -21,6 +21,6 @@ export async function GET() {
     return Response.json(data)
   } catch (error) {
     console.error(error)
-    return { status: 500, body: { error: "Internal server error" } }
+    return Response.json({ error: "Internal server error" }, { status: 500 })
   }
 }

@@ -16,7 +16,7 @@ export default async function MenuBar({ className }: MenuBarProps) {
 
   if (!user) return null
 
-  const [unreadNotificationCount, unreadMessagesCount] = await Promise.all([
+  const [unreadNotificationsCount, unreadMessagesCount] = await Promise.all([
     prisma.notification.count({
       where: {
         recipientId: user.id,
@@ -40,7 +40,7 @@ export default async function MenuBar({ className }: MenuBarProps) {
         </Link>
       </Button>
       <NotificationsButton
-        initialState={{ unreadCount: unreadNotificationCount }}
+        initialState={{ unreadCount: unreadNotificationsCount }}
       />
       <MessagesButton initialState={{ unreadCount: unreadMessagesCount }} />
       <Button
