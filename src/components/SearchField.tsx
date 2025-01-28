@@ -3,6 +3,7 @@
 import { SearchIcon } from "lucide-react"
 import { Input } from "./ui/input"
 import { useRouter } from "next/navigation"
+import { Button } from "./ui/button"
 
 export default function SearchField() {
   const { push } = useRouter()
@@ -18,7 +19,12 @@ export default function SearchField() {
     <form onSubmit={handleSubmit} method='GET' action='/search'>
       <div className='relative'>
         <Input name='q' placeholder='Search' className='pe-10' />
-        <SearchIcon className='absolute right-3 top-1/2 size-5 -translate-y-1/2 transform cursor-pointer text-muted-foreground' />
+        <button
+          type='submit'
+          className='absolute right-3 top-1/2 size-5 -translate-y-1/2 transform cursor-pointer text-muted-foreground'
+        >
+          <SearchIcon />
+        </button>
       </div>
     </form>
   )
