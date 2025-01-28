@@ -4,9 +4,9 @@ import { cookies } from "next/headers"
 
 export async function GET() {
   const state = generateState()
-  const codeVerify = generateCodeVerifier()
+  const codeVerifier = generateCodeVerifier()
 
-  const url = await google.createAuthorizationURL(state, codeVerify, {
+  const url = await google.createAuthorizationURL(state, codeVerifier, {
     scopes: ["profile", "email"],
   })
 
@@ -18,7 +18,7 @@ export async function GET() {
     sameSite: "lax",
   })
 
-  cookies().set("code_verifier", codeVerify, {
+  cookies().set("code_verifier", codeVerifier, {
     path: "/",
     secure: process.env.NODE_ENV === "production",
     httpOnly: true,
