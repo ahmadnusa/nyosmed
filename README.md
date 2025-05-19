@@ -28,10 +28,3 @@ A full-featured social media web application built with **Next.js 15**, providin
 - Validation: React Hook Form, Zod  
 - Deployment: Vercel  
 
-## Getting Started
-
-### Prerequisites
-
-- Node.js (v18 or newer)  
-- PostgreSQL database  
-- Vercel account (for deployment)  
